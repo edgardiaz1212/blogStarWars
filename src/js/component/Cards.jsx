@@ -11,10 +11,10 @@ const Cards = () => {
         alt="..."
       />
       <div className="card-body">
-        <h5 className="card-title">Luke skywalker</h5>
-        <span className="card-text">Gender:</span><br/>
-        <span className="card-text">Hair-Color:</span><br/>
-        <span className="card-text">Eye-Color:</span><br/>
+        <h5 className="card-title">Name</h5>
+        <span className="card-text">spec1</span><br/>
+        <span className="card-text">spec2:</span><br/>
+        <span className="card-text">spec3:</span><br/>
       </div>
 
       <div className="card-body ">
