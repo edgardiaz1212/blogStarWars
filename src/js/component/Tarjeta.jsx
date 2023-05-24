@@ -3,9 +3,15 @@ import { Link } from 'react-router-dom'
 import { Context } from "../store/appContext"
 
 const Tarjeta = () => {
+  
   const { store, actions } = useContext(Context);
+  const {endPoint}= store
+console.log(actions.getData())
+  endPoint.map((item,index)=>{
   return (
+   
    <>
+   <div key={index}>
     <div className="container horizontal-scrollable m-3">
     <div className="card " style={{ width: "18rem" }}>
       <img
@@ -14,7 +20,7 @@ const Tarjeta = () => {
         alt="..."
       />
       <div className="card-body">
-        <h5 className="card-title"> </h5>
+        <h5 className="card-title">{item.name} </h5>
         <span className="card-text">spec1</span><br/>
         <span className="card-text">spec2:</span><br/>
         <span className="card-text">spec3:</span><br/>
@@ -32,9 +38,9 @@ const Tarjeta = () => {
 
 
     
-  </div>
+  </div></div>
     </>
-  )
+  )})
 }
 
 export default Tarjeta
