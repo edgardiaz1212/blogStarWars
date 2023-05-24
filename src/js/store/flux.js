@@ -1,9 +1,10 @@
 const getState = ({ getStore, getActions, setStore }) => {
-	BASEURL: "https://www.swapi.tech/api/"
-	endpoints: ["people","planets"]
+	
 
 	return {
 		store: {
+			BASEURL: "https://www.swapi.tech/api/",
+			endpoints: ["people","planets"],
 			demo: [
 				{
 					title: "FIRST",
@@ -41,21 +42,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//reset the global store
 				setStore({ demo: demo });
 			},
-			getData: async () => {
-				try {
-				  let response = await fetch(
-					`${getStore().BASEURL}`
-				  );
-		
-				  if (response.ok) {
-					let data = await response.json();
-					;
-					console.log(data);
-				  } else console.log("error al traer datata");
-				} catch (err) {
-				  console.log(err);
-				}
-			  },
+			getData: async () =>  {
+                let store = getStore()
+
+                store.endpoints.forEach(async (endPoint) => {
+                    console.log(endPoint)
+                    let response = await fetch(`${store.BASEURL}/${endPoint}`)
+                    let data = await response.json()
+
+                    setStore({
+                        [endPoint]: data.results
+                    })
+                })
+
+            },
 		}
 	};
 };

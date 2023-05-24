@@ -1,8 +1,11 @@
-import React from 'react'
-import { Link } from "react-router-dom";
+import React, {useContext} from 'react'
+import { Link } from 'react-router-dom'
+import { Context } from "../store/appContext"
 
-const Cards = () => {
+const Tarjeta = () => {
+  const { store, actions } = useContext(Context);
   return (
+   <>
     <div className="container horizontal-scrollable m-3">
     <div className="card " style={{ width: "18rem" }}>
       <img
@@ -11,7 +14,7 @@ const Cards = () => {
         alt="..."
       />
       <div className="card-body">
-        <h5 className="card-title">Name</h5>
+        <h5 className="card-title"> </h5>
         <span className="card-text">spec1</span><br/>
         <span className="card-text">spec2:</span><br/>
         <span className="card-text">spec3:</span><br/>
@@ -19,7 +22,7 @@ const Cards = () => {
 
       <div className="card-body ">
         <Link href="#" className="btn btn-outline-primary me-5">
-          Learn more!
+          Learn more! 
         </Link>
         <Link href="#" className="btn btn-outline-warning ms-5">
         <i className="fa-regular fa-heart"></i>
@@ -30,7 +33,8 @@ const Cards = () => {
 
     
   </div>
+    </>
   )
 }
 
-export default Cards
+export default Tarjeta

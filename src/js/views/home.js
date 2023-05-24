@@ -1,23 +1,30 @@
-import React from "react";
+import React ,{useContext} from "react";
 import "../../styles/home.css";
-import Cards from "../component/Cards.jsx"
+import Tarjeta from "../component/Tarjeta.jsx";
 
-export const Home = () => (
+
+
+
+
+export const Home = () => {
+  
+  return(
   <>
     {" "}
     <div className=" text-danger mt-5">
       <h1>Characters</h1>
     </div>
+    
+    
     <div className="scroll-container" style={{ overflowX: "scroll" }}>
-      <Cards /> 
-       <Cards /> 
-      <Cards /> 
+    <Tarjeta/>
+      
     </div>
     <div className=" text-danger mt-5">
       <h1>Planets</h1>
     </div>
     <div className="scroll-container" style={{ overflowX: "scroll" }}>
-      <Cards />
+     
     </div>
-  </>
-);
+  </>)
+};
