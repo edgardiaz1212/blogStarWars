@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 const Tarjeta = (props) => {
   const {item} =props
-  
-
+  const { store, actions } = useContext(Context);
+  const { people, planets } = store;
+  const params = useParams();
 
   return (
     <>
@@ -20,14 +21,16 @@ const Tarjeta = (props) => {
             />
             <div className="card-body">
               <h5 className="card-title">{item.name}</h5>
-              <span className="card-text">Eye color: </span>
+              <span className="card-text">{item.eye_color} </span>
               <br />
               <span className="card-text">Hair color: </span>
               <br />
-              <span className="card-text">Gender: </span>
+              <span className="card-text">Gender:{item.uid} </span>
               <br />
             </div>
-
+{/* {if (store = people){
+  
+}} */}
             <div className="card-body ">
               <Link href="#" className="btn btn-outline-primary me-5">
                 Learn more!

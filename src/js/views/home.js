@@ -8,7 +8,7 @@ import { Context } from "../store/appContext";
 export const Home = () => {
   const { store, actions } = useContext(Context);
   const { people, planets } = store;
-  console.log(people);
+  
 
   return (
     <>
@@ -17,8 +17,8 @@ export const Home = () => {
         <h1>Characters</h1>
       </div>
       <div className="d-flex scroll-container" style={{ overflowX: "scroll" }}>
-        {people.map((item) => {
-          return <Tarjeta item={item} key={`${item.id}${item.name}`}/>;
+        {people.map((item) => { 
+          return <Tarjeta item={item} key={`${item.id}${item.name}`} />;
         })}
       </div>
       <div className=" text-danger mt-5">
@@ -28,7 +28,7 @@ export const Home = () => {
         className="d-flex scroll-container"
         style={{ overflowX: "scroll" }}
       >{planets.map((item) => {
-        return <Tarjeta item={item} key={`${item.id}${item.name}`}/>;
+        return <Tarjeta item={item} key={`${item.id}${item.name}`} />;
       })}
 
       </div>

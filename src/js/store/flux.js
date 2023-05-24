@@ -7,6 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			endPoint: ["people", "planets",],
 			people :[],
             planets:[]
+
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -15,7 +16,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 let store = getStore()
 
                 store.endPoint.forEach(async (endPoint) => {
-                    console.log(endPoint)
+                    
                     let response = await fetch(`${store.BASEURL}/${endPoint}`)
                     let data = await response.json()
 
@@ -26,13 +27,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             },
 
-			getPeople: async () => {
+			getPeople: async (uid) => {
                 let store = getStore();
-                let response = await fetch(`${store.BASEURL}/people`);
+                let response = await fetch(`${store.BASEURL}/people/:${uid}`);
                 let data = await response.json();
-                setStore({
-                    people: data.results,
-                });
+                // setStore({
+                //     people: data.results,
+                // }
+                // )
+                console.log(data.results);
             },
             getPlanets: async () => {
                 let store = getStore();
