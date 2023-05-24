@@ -5,7 +5,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			BASEURL: "https://www.swapi.tech/api/",
 			endPoint: ["people", "planets",],
-			
+			people :[],
+            planets:[]
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -42,7 +43,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 });
 
 		}
-	};
-};
+	}
+}};
 
-export default getState;
+export default getState
