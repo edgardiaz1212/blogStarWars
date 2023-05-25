@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import { Context } from "../store/appContext";
 
@@ -8,8 +8,13 @@ import "../../styles/demo.css";
 export const Demo = () => {
   const { store, actions } = useContext(Context);
 
+  const { people, planets } = store;
+  const params = useParams()
+  console.log(params)
+  console.log(people)
   return (
     <>
+      {/* <div className="container">
       {/* <div className="container">
         <ul className="list-group">
           {store.demo.map((item, index) => {
@@ -45,7 +50,7 @@ export const Demo = () => {
         <Link to="/">
           <button className="btn btn-primary">Back home</button>
         </Link>
-      </div> */}
+      </div>
 	  <div className="container fluid">
       <div className="row m-3">
         <div className="col-6 ">
@@ -56,7 +61,7 @@ export const Demo = () => {
           />
         </div>
         <div className="col-6 text-center">
-          <h1>Luke</h1>
+          <h1>Luke </h1>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
