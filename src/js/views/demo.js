@@ -10,7 +10,7 @@ export const Demo = () => {
 
   return (
     <>
-      <div className="container">
+      {/* <div className="container">
         <ul className="list-group">
           {store.demo.map((item, index) => {
             return (
@@ -45,7 +45,7 @@ export const Demo = () => {
         <Link to="/">
           <button className="btn btn-primary">Back home</button>
         </Link>
-      </div>
+      </div> */}
 	  <div className="container fluid">
       <div className="row m-3">
         <div className="col-6 ">
