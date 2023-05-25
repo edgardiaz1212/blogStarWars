@@ -1,52 +1,35 @@
 const getState = ({ getStore, getActions, setStore }) => {
-	
+  return {
+    store: {
+      BASEURL: "https://www.swapi.tech/api/",
+      endPoint: ["people", "planets"],
+      people: JSON.parse(localStorage.getItem("people"))|| [],
+      planets: JSON.parse(localStorage.getItem("planets"))|| [],
+    },
+    actions: {
+      // Use getActions to call a function within a fuction
 
-	return {
-		store: {
-			BASEURL: "https://www.swapi.tech/api/",
-			endPoint: ["people", "planets",],
-			people :[],
-            planets:[]
+      getData: () => {
+        let store = getStore();
+        if (store.people.length <= 0) {
+          store.endPoint.forEach(async (endPoint) => {
+            let response = await fetch(`${store.BASEURL}/${endPoint}`);
+            let data = await response.json();
+            data.results.forEach(async (item) => {
+              let responseItem = await fetch(
+                `${store.BASEURL}/${endPoint}/${item.uid}`
+              );
+              let dataItem = await responseItem.json();
 
-		},
-		actions: {
-			// Use getActions to call a function within a fuction
-			
-			getData: () => {
-                let store = getStore()
+              setStore({
+                [endPoint]: [...store[endPoint], dataItem.result],
+              });
+            });
+          });
+        }
+      },
+    },
+  };
+};
 
-                store.endPoint.forEach(async (endPoint) => {
-                    
-                    let response = await fetch(`${store.BASEURL}/${endPoint}`)
-                    let data = await response.json()
-
-                    setStore({
-                        [endPoint]: data.results
-                    })
-                })
-
-            },
-
-			getPeople: async (uid) => {
-                let store = getStore();
-                let response = await fetch(`${store.BASEURL}/people/:${uid}`);
-                let data = await response.json();
-                // setStore({
-                //     people: data.results,
-                // }
-                // )
-                console.log(data.results);
-            },
-            getPlanets: async () => {
-                let store = getStore();
-                let response = await fetch(`${store.BASEURL}/planets`);
-                let data = await response.json();
-                setStore({
-                    planets: data.results,
-                });
-
-		}
-	}
-}};
-
-export default getState
+export default getState;

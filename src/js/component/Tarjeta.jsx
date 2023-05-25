@@ -20,12 +20,12 @@ const Tarjeta = (props) => {
               alt="..."
             />
             <div className="card-body">
-              <h5 className="card-title">{item.name}</h5>
-              <span className="card-text">{item.eye_color} </span>
+              <h5 className="card-title">{item.properties.name}</h5>
+              <span className="card-text"> {item.properties.eye_color} </span>
               <br />
-              <span className="card-text">Hair color: </span>
+              <span className="card-text">Hair color: {item.properties.hair_color} </span>
               <br />
-              <span className="card-text">Gender:{item.uid} </span>
+              <span className="card-text">Gender:{item.properties.gender} </span>
               <br />
             </div>
 {/* {if (store = people){

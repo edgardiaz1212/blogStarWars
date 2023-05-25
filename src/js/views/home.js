@@ -5,10 +5,10 @@ import Tarjeta from "../component/Tarjeta.jsx";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const Home = () => {
+export const Home = (items) => {
   const { store, actions } = useContext(Context);
   const { people, planets } = store;
-  
+      
 
   return (
     <>
@@ -17,21 +17,19 @@ export const Home = () => {
         <h1>Characters</h1>
       </div>
       <div className="d-flex scroll-container" style={{ overflowX: "scroll" }}>
-        {people.map((item) => { 
-          return <Tarjeta item={item} key={`${item.id}${item.name}`} />;
+        {people.map((item) => {
+          return <Tarjeta item={item} key={`${item._id}`} />;
         })}
       </div>
       <div className=" text-danger mt-5">
         <h1>Planets</h1>
       </div>
-      <div
-        className="d-flex scroll-container"
-        style={{ overflowX: "scroll" }}
-      >{planets.map((item) => {
-        return <Tarjeta item={item} key={`${item.id}${item.name}`} />;
-      })}
-
+      <div className="d-flex scroll-container" style={{ overflowX: "scroll" }}>
+        {planets.map((item) => {
+          return <Tarjeta item={item} key={`${item._id}`} />;
+        })}
       </div>
+      
     </>
   );
 };
