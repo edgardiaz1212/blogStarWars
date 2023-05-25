@@ -1,12 +1,12 @@
-import React, { useContext, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link} from "react-router-dom";
 import { Context } from "../store/appContext";
 
 const Tarjeta = (props) => {
   const { item, nature } = props
-  const { store, actions } = useContext(Context);
+  const { store } = useContext(Context);
   const { people, planets } = store;
-  const params = useParams();
+  ;
 
   return (
     <>
@@ -31,7 +31,7 @@ const Tarjeta = (props) => {
                 </div>
 
                 <div className="card-body ">
-                  <Link href="#" className="btn btn-outline-primary me-5">
+                  <Link to={`/demo/${nature}/${item.uid}`} className="btn btn-outline-primary me-5">
                     Learn more!
                   </Link>
                   <Link href="#" className="btn btn-outline-warning ms-5">
@@ -61,7 +61,7 @@ const Tarjeta = (props) => {
                   </div>
 
                   <div className="card-body ">
-                    <Link href="#" className="btn btn-outline-primary me-5">
+                    <Link to={`/demo/${nature}/${item.uid}`} className="btn btn-outline-primary me-5">
                       Learn more!
                     </Link>
                     <Link href="#" className="btn btn-outline-warning ms-5">
