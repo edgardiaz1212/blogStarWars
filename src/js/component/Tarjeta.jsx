@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 const Tarjeta = (props) => {
   const { item, nature } = props
   const { store } = useContext(Context);
-  const params = useParams();
+
 
   return (
     <>
@@ -37,14 +37,14 @@ const Tarjeta = (props) => {
                           <br />
                           <span className="card-text">Terrain: {item.properties.terrain} </span>
                           <br />
-                          
-                          
+
+
                         </> : null
                   }
                 </div>
 
                 <div className="card-body ">
-                  <Link href="#" className="btn btn-outline-primary me-5">
+                  <Link to={`${nature}/${item.uid}`} className="btn btn-outline-primary me-5">
                     Learn more!
                   </Link>
                   <Link href="#" className="btn btn-outline-warning ms-5">
@@ -67,14 +67,10 @@ const Tarjeta = (props) => {
                     <h5 className="card-title">{item.properties.name}</h5>
                     <span className="card-text"> {item.properties.population} </span>
                     <br />
-                    <span className="card-text">Hair color:  </span>
-                    <br />
-                    <span className="card-text">Gender: </span>
-                    <br />
                   </div>
 
                   <div className="card-body ">
-                    <Link href="#" className="btn btn-outline-primary me-5">
+                    <Link to={`${nature}/${item.uid}`} className="btn btn-outline-primary me-5">
                       Learn more!
                     </Link>
                     <Link href="#" className="btn btn-outline-warning ms-5">
