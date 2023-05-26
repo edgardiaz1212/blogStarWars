@@ -44,11 +44,9 @@ const Tarjeta = (props) => {
                 </div>
 
                 <div className="card-body ">
-<<<<<<< HEAD
+
                   <Link to={`/${nature}/${item._id}`} className="btn btn-outline-primary me-5">
-=======
-                  <Link to={`${nature}/${item.uid}`} className="btn btn-outline-primary me-5">
->>>>>>> 14977ba2bc1fd7e79355f378258069e2b8334669
+
                     Learn more!
                   </Link>
                   <Link href="#" className="btn btn-outline-warning ms-5">
@@ -74,11 +72,9 @@ const Tarjeta = (props) => {
                   </div>
 
                   <div className="card-body ">
-<<<<<<< HEAD
+
                     <Link to={`/demo/${nature}/${item._id}`} className="btn btn-outline-primary me-5">
-=======
-                    <Link to={`${nature}/${item.uid}`} className="btn btn-outline-primary me-5">
->>>>>>> 14977ba2bc1fd7e79355f378258069e2b8334669
+
                       Learn more!
                     </Link>
                     <Link href="#" className="btn btn-outline-warning ms-5">
