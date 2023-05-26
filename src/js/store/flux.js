@@ -24,12 +24,9 @@ const getState = ({ getStore, getActions, setStore }) => {
               setStore({
                 [endPoint]: [...store[endPoint], dataItem.result],
               });
-<<<<<<< HEAD
+
                window.localStorage.setItem(endPoint,JSON.stringify(store[endPoint]))
-=======
-              //  window.localStorage.setItem(endPoint.JSON.stringify(store[endPoint]))
->>>>>>> 14977ba2bc1fd7e79355f378258069e2b8334669
-            });
+                 });
           });
         }
       },
