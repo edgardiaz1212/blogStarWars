@@ -14,7 +14,7 @@ export const Demo = () => {
   // console.log(people)
 
   const finder = () => {
-    let detail = store.people.find((item) =>
+    const detail = store.people.find((item) =>
       item._id == params.id
     )
     console.log(finder)
@@ -38,7 +38,7 @@ export const Demo = () => {
           </div>
           <div className="col-6 text-center">
 
-            <h1>descripcion Nombre </h1>
+            <h1>descripcion Nombre {detail.name}</h1>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
