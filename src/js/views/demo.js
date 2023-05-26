@@ -8,21 +8,55 @@ import "../../styles/demo.css";
 export const Demo = () => {
   const { store, actions } = useContext(Context);
   const { people, planets } = store;
-
+  const [detail, setDetail]=useState({})
   const params = useParams()
   // console.log(params)
   // console.log(people)
 
   const finder = () => {
-    const detail = store.people.find((item) =>
+    let detail = store[params.nature].find((item) =>
       item._id == params.id
     )
-    console.log(finder)
+    setDetail(detail)
   }
   useEffect(() => {
     finder()
-    console.log("me ejecuto")
-  }, [store.people])
+    
+  }, [store.people, store.planets])
+
+  const propertiesFound = () => {
+    if (detail.propertiesNeeded) {
+      let propertiesNeeded;
+      if (params.nature === "planets") {
+        propertiesNeeded = [
+          { key: "name", name: "Name" },
+          { key: "climate", name: "Climate" },
+          { key: "population", name: "Population" },
+          { key: "orbital_period", name: "Orbital Period" },
+          { key: "rotation_period", name: "Rotation Period" },
+          { key: "diameter", name: "Diameter" },
+          
+        ];
+      } else if (params.nature === "people") {
+        propertiesNeeded = [
+          { key: "name", name: "Name" },
+          { key: "birth_year", name: "Birth Year" },
+          { key: "gender", name: "Gender" },
+          { key: "height", name: "Height" },
+          { key: "skin_color", name: "Skin Color" },
+          { key: "eye_color", name: "Eye Color" },
+        
+        ];
+      }
+  
+      return propertiesNeeded.map(({ key, name }) => (
+        <div key={key} className="col-2 text-danger">
+          <strong>{name}: </strong> {detail.properties[key]}
+        </div>
+      ));
+    }
+    
+  };
 
   return (
     <>
@@ -38,7 +72,7 @@ export const Demo = () => {
           </div>
           <div className="col-6 text-center">
 
-            <h1>descripcion Nombre {detail.name}</h1>
+            <h1>{detail.properties?.name}</h1>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
@@ -53,12 +87,8 @@ export const Demo = () => {
       <div className="container fluid">
         <hr className="bg-danger" />
         <div className="row m-3">
-          <div className="col-2">descripcion 1</div>
-          <div className="col-2">descripcion 2</div>
-          <div className="col-2">descripcion 3</div>
-          <div className="col-2">descripcion 4</div>
-          <div className="col-2">descripcion 5</div>
-          <div className="col-2">descripcion 6</div>
+        {propertiesFound()}
+         
         </div>
       </div>
     </>
