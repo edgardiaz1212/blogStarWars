@@ -7,13 +7,13 @@ import "../../styles/demo.css";
 
 export const Demo = () => {
   const { store, actions } = useContext(Context);
-  // const { people, planets } = store;
+  const { people, planets } = store;
   const params = useParams();
   const [selected, setSelected] = useState(store); //id is the key for the object in the store.
 
   return (
     <>
-      {nature.filter((name, value) => {
+      {selected.filter((name, value) => {
         return (
           <h1>
             {name} {value}
