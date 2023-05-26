@@ -7,8 +7,8 @@ import "../../styles/demo.css";
 
 export const Demo = () => {
   const { store, actions } = useContext(Context);
-
   const { people, planets } = store;
+<<<<<<< HEAD
   const params = useParams()
   // console.log(params)
   // console.log(people)
@@ -29,6 +29,21 @@ console.log()
 
 
 
+=======
+  const params = useParams();
+  const [selected, setSelected] = useState(store); //id is the key for the object in the store.
+
+  return (
+    <>
+      {selected.filter((name, value) => {
+        return (
+          <h1>
+            {name} {value}
+          </h1>
+        );
+      })}
+
+>>>>>>> 14977ba2bc1fd7e79355f378258069e2b8334669
       <div className="container fluid">
         <div className="row m-3">
           <div className="col-6 ">
@@ -39,6 +54,7 @@ console.log()
             />
           </div>
           <div className="col-6 text-center">
+<<<<<<< HEAD
             <h1>Luke </h1>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -47,6 +63,16 @@ console.log()
               and scrambled it to make a type specimen book. It has survived not
               only five centuries, but also the leap into electronic typesetting,
               remaining essentially unchanged{" "}
+=======
+            <h1>nombre result.properties</h1>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged{" "}
+>>>>>>> 14977ba2bc1fd7e79355f378258069e2b8334669
             </p>
           </div>
         </div>
