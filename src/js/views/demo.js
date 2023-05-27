@@ -6,9 +6,9 @@ import { Context } from "../store/appContext";
 import "../../styles/demo.css";
 
 export const Demo = () => {
-  const { store, actions } = useContext(Context);
+  const { store } = useContext(Context);
   const { people, planets } = store;
-  const [detail, setDetail]=useState({})
+  const [detail, setDetail] = useState({})
   const params = useParams()
   // console.log(params)
   // console.log(people)
@@ -21,11 +21,11 @@ export const Demo = () => {
   }
   useEffect(() => {
     finder()
-    
+
   }, [store.people, store.planets])
 
   const propertiesFound = () => {
-    if (detail.propertiesNeeded) {
+    if (detail.properties) {
       let propertiesNeeded;
       if (params.nature === "planets") {
         propertiesNeeded = [
@@ -35,7 +35,7 @@ export const Demo = () => {
           { key: "orbital_period", name: "Orbital Period" },
           { key: "rotation_period", name: "Rotation Period" },
           { key: "diameter", name: "Diameter" },
-          
+
         ];
       } else if (params.nature === "people") {
         propertiesNeeded = [
@@ -45,17 +45,19 @@ export const Demo = () => {
           { key: "height", name: "Height" },
           { key: "skin_color", name: "Skin Color" },
           { key: "eye_color", name: "Eye Color" },
-        
+
         ];
       }
-  
+
       return propertiesNeeded.map(({ key, name }) => (
-        <div key={key} className="col-2 text-danger">
-          <strong>{name}: </strong> {detail.properties[key]}
+        <div key={key} className="col-2 text-danger text-center">
+          <strong>{name}: </strong> 
+          <hr className="invisible"/>
+          {detail.properties[key]}
         </div>
       ));
     }
-    
+
   };
 
   return (
@@ -87,8 +89,8 @@ export const Demo = () => {
       <div className="container fluid">
         <hr className="bg-danger" />
         <div className="row m-3">
-        {propertiesFound()}
-         
+          {propertiesFound()}
+
         </div>
       </div>
     </>

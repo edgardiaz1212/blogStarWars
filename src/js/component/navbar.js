@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Favorite from "./Favorite.jsx";
 
 export const Navbar = () => {
   return (
@@ -12,24 +13,7 @@ export const Navbar = () => {
 
         <div className="ml-auto">
           <Link to="/demo">
-            <div className="dropdown">
-              <button
-                className="btn btn-primary dropdown-toggle me-3"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Favorites <span className="badge bg-secondary">4</span>
-              </button>
-              <ul className="dropdown-menu">
-                <li>
-                  <button className="dropdown-item" type="button">
-                    Action
-                  </button>
-                </li>
-                
-              </ul>
-            </div>
+            <Favorite/>
           </Link>
         </div>
       </nav>
