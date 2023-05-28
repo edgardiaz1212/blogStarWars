@@ -22,17 +22,17 @@ const Favorite = () => {
                     : favorites.map((item) => {
 
                         return (
-                            <li className="d-flex" key={item._id}>
-                                <Link className="dropdown-item" to={`/demo/${endPoint}/${item._id}`}>
+                            <><li className="d-flex" key={item._id}>
+                                <Link className="dropdown-item" to={`/demo/${item.nature}/${item._id}`}>
                                     {item.properties.name}
                                 </Link>
                                 <button
-                                    className='delete-button'
-                                     onClick={() => deleteFavorite(item)}
-                                    >
+                                className='btn btn-light'
+                                onClick={() => deleteFavorite(item)}
+                            >
                                     <i className="fa-solid fa-trash-can"></i>
                                 </button>
-                            </li>
+                            </li></>
 
 
 
