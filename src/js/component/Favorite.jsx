@@ -6,7 +6,7 @@ const Favorite = () => {
     
     const { store } = useContext(Context);
     const { favorites, endPoint } = store
-
+    const params = useParams()
     return (<>
         <div className="dropdown">
             <button
@@ -23,7 +23,7 @@ const Favorite = () => {
 
                         return (
                             <li className="d-flex" key={item._id}>
-                                <Link className="dropdown-item" to={`/demo/${endPoint}/${item._id}`}>
+                                <Link className="dropdown-item" to={`/demo/${params.id}/${item._id}`}>
                                     {item.properties.name}
                                 </Link>
                                 <button
