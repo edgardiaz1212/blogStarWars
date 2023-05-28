@@ -3,8 +3,9 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
 const Favorite = () => {
+    
     const { store } = useContext(Context);
-    const { favorites } = store
+    const { favorites, endPoint } = store
 
     return (<>
         <div className="dropdown">
@@ -18,16 +19,22 @@ const Favorite = () => {
             </button>
             <ul className="dropdown-menu">
                 {favorites.length == 0 ? <li className='"dropdown-item"'>Empty </li>
-                    : favorites.map((item, index) => {
-                        console.log(item)
+                    : favorites.map((item) => {
+
                         return (
-                            <li className="d-flex" key={index}>
-                                <Link className="dropdown-item" to={item.url}>
+                            <li className="d-flex" key={item._id}>
+                                <Link className="dropdown-item" to={`/demo/${endPoint}/${item._id}`}>
                                     {item.properties.name}
-                                </Link><button className='delete-button'> <i className="fa-solid fa-trash-can"></i></button>
+                                </Link>
+                                <button
+                                    className='delete-button'
+                                    // onClick={() => deleteFavorite(item.properties.url)}
+                                    >
+                                    <i className="fa-solid fa-trash-can"></i>
+                                </button>
                             </li>
-                                
-                            
+
+
 
                         )
                     })
