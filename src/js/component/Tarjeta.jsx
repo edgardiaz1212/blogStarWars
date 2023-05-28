@@ -4,8 +4,8 @@ import { Context } from "../store/appContext";
 
 const Tarjeta = (props) => {
   const { item, nature } = props
-  const { store } = useContext(Context);
-
+  const { actions } = useContext(Context);
+const {addFavorites } = actions
 
   return (
     <>
@@ -49,9 +49,9 @@ const Tarjeta = (props) => {
 
                     Learn more!
                   </Link>
-                  <Link href="#" className="btn btn-outline-warning ms-5">
+                  <button onClick={()=>addFavorites(item)} className="btn btn-outline-warning ms-5">
                     <i className="fa-regular fa-heart"></i>
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>
@@ -77,9 +77,9 @@ const Tarjeta = (props) => {
 
                       Learn more!
                     </Link>
-                    <Link href="#" className="btn btn-outline-warning ms-5">
+                    <button onClick={()=>addFavorites(item)} className="btn btn-outline-warning ms-5">
                       <i className="fa-regular fa-heart"></i>
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>

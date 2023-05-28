@@ -5,6 +5,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       endPoint: ["people", "planets"],
       people: JSON.parse(localStorage.getItem("people"))|| [],
       planets: JSON.parse(localStorage.getItem("planets"))|| [],
+      favorites : []
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -30,8 +31,18 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
         }
       },
+      addFavorites : (item) => {
+        let store = getStore()
+        let favorite = store.favorites.some((fav)=> item._id ==fav._id)
+      if(!favorite){
+        setStore({
+          favorites:[...store.favorites, item]
+        })
+      }
+      console.log(item)
+      }
     },
-  };
+  }; 
 };
 
 export default getState;
