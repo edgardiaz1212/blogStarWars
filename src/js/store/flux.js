@@ -43,7 +43,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       deleteFavorite : ()=>{
         let store = getStore()
-        store.favorites.filter((fav)=>{return !store.favorites.includes(fav)})
+        const filteredFav = store.favorites.filter((fav)=>{return !store.favorites.includes(fav)})
+        setStore({favorites : filteredFav})
 
       }
     },
