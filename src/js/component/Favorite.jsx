@@ -8,7 +8,7 @@ const Favorite = () => {
 
     return (
         <>
-            <div className="dropdown">
+            <div className="dropdown dropdown-end">
                 <button
                     className="btn btn-primary dropdown-toggle me-3"
                     type="button"
