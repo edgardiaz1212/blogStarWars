@@ -56,7 +56,10 @@ const Tarjeta = (props) => {
 
                     Learn more!
                   </Link>
-                  <button onClick={handleFavoriteClick} className="btn btn-outline-warning ms-5">
+                  <button
+                    onClick={handleFavoriteClick}
+                    className={`btn btn-outline-warning ms-5 ${isFavorite ? 'active' : ''}`}
+                  >
                     <i className="fa-regular fa-heart"></i>
                   </button>
                 </div>
@@ -84,7 +87,9 @@ const Tarjeta = (props) => {
 
                       Learn more!
                     </Link>
-                    <button onClick={handleFavoriteClick} className="btn btn-outline-warning ms-5">
+                    <button
+                      onClick={handleFavoriteClick}
+                      className={`btn btn-outline-warning ms-5 ${isFavorite ? 'active' : ''}`}>
                       <i className="fa-regular fa-heart"></i>
                     </button>
                   </div>
