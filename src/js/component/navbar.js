@@ -12,9 +12,9 @@ export const Navbar = () => {
 		
 
         <div className="ml-auto">
-          <Link to="/demo">
-            <Favorite/>
-          </Link>
+          
+            <Favorite />
+          
         </div>
       </nav>
     </>

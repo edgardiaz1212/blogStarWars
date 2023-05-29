@@ -4,8 +4,15 @@ import { Context } from "../store/appContext";
 
 const Tarjeta = (props) => {
   const { item, nature } = props
-  const { actions } = useContext(Context);
-const {addFavorites } = actions
+  const { actions, store } = useContext(Context);
+  const { favorites } = store;
+  const { addFavorites } = actions;
+
+  const isFavorite = favorites.some((fav) => fav._id === item._id);
+
+  const handleFavoriteClick = () => {
+    addFavorites(item);
+  };
 
   return (
     <>
@@ -49,7 +56,7 @@ const {addFavorites } = actions
 
                     Learn more!
                   </Link>
-                  <button onClick={()=>addFavorites(item)} className="btn btn-outline-warning ms-5">
+                  <button onClick={handleFavoriteClick} className="btn btn-outline-warning ms-5">
                     <i className="fa-regular fa-heart"></i>
                   </button>
                 </div>
@@ -77,7 +84,7 @@ const {addFavorites } = actions
 
                       Learn more!
                     </Link>
-                    <button onClick={()=>addFavorites(item)} className="btn btn-outline-warning ms-5">
+                    <button onClick={handleFavoriteClick} className="btn btn-outline-warning ms-5">
                       <i className="fa-regular fa-heart"></i>
                     </button>
                   </div>
