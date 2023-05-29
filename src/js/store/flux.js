@@ -3,9 +3,9 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       BASEURL: "https://www.swapi.tech/api/",
       endPoint: ["people", "planets"],
-      people: JSON.parse(localStorage.getItem("people"))|| [],
-      planets: JSON.parse(localStorage.getItem("planets"))|| [],
-      favorites : []
+      people: JSON.parse(localStorage.getItem("people")) || [],
+      planets: JSON.parse(localStorage.getItem("planets")) || [],
+      favorites: []
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -26,20 +26,20 @@ const getState = ({ getStore, getActions, setStore }) => {
                 [endPoint]: [...store[endPoint], dataItem.result],
               });
 
-               window.localStorage.setItem(endPoint,JSON.stringify(store[endPoint]))
-                 });
+              window.localStorage.setItem(endPoint, JSON.stringify(store[endPoint]))
+            });
           });
         }
       },
-      addFavorites : (item) => {
+      addFavorites: (item) => {
         let store = getStore()
-        let favorite = store.favorites.some((fav)=> item._id ==fav._id)
-      if(!favorite){
-        setStore({
-          favorites:[...store.favorites, item]
-        })
-      }
-      
+        let favorite = store.favorites.some((fav) => item._id == fav._id)
+        if (!favorite) {
+          setStore({
+            favorites: [...store.favorites, item]
+          })
+        }
+
       },
       deleteFavorite: (item) => {
         let store = getStore();
@@ -50,7 +50,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         });
       }
     },
-  }; 
+  };
 };
 
 export default getState;

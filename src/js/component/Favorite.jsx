@@ -25,7 +25,7 @@ const Favorite = () => {
                             <li className="d-flex" key={item._id}>
                                 <Link className="dropdown-item" to={`/${item.properties.url.includes(`people`) ? 'people' : 'planets'}/${item._id}`}>
                                     {item.properties.name}
-                                    {/* ${item.properties.url.includes(`people`) ? 'people' : 'planets'} */}
+
                                 </Link>
                                 <button
                                     type="button"

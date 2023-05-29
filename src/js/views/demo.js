@@ -51,8 +51,8 @@ export const Demo = () => {
 
       return propertiesNeeded.map(({ key, name }) => (
         <div key={key} className="col-2 text-danger text-center">
-          <strong>{name}: </strong> 
-          <hr className="invisible"/>
+          <strong>{name}: </strong>
+          <hr className="invisible" />
           {detail.properties[key]}
         </div>
       ));

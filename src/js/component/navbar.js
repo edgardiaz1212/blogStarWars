@@ -9,12 +9,12 @@ export const Navbar = () => {
         <Link to="/">
           <span className="navbar-brand me-3 mb-0 h1">StarWars</span>
         </Link>
-		
+
 
         <div className="ml-auto">
-          
-            <Favorite />
-          
+
+          <Favorite />
+
         </div>
       </nav>
     </>
