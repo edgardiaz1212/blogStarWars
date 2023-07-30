@@ -8,9 +8,9 @@ export const Navbar = () => {
     <>
       <nav className="navbar  mb-3">
         <Link to="/">
-          <span className="navbar-brand me-3 mb-0 h1">StarWars</span>
+          <span className="navbar-brand me-3 mb-0 h1 ms-3"><img className="logo" src={logo} /></span>
         </Link>
-<img className="logo" src={logo} />
+
 
         <div className="ml-auto">
 

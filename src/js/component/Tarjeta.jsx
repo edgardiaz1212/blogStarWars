@@ -39,7 +39,7 @@ const Tarjeta = (props) => {
                     `/${item.uid}.jpg`
                   }onError={(e) => {
                       e.target.onerror = null;
-                      e.target.src = "https://www.hub-4.co.uk/wp-content/uploads/2017/11/400X200.gif";
+                      e.target.src = "https://starwars-visualguide.com/assets/img/placeholder.jpg";
                     }
                   }
                   
@@ -101,13 +101,13 @@ const Tarjeta = (props) => {
 
                 <div className="card-body ">
 
-                  <Link to={`/${nature}/${item._id}`} className="btn btn-outline-primary me-5">
-
-                    Learn more!
+                  <Link to={`/${nature}/${item._id}`} className=" me-5 ui-btn">
+                  <span>Learn more!</span>
+                    
                   </Link>
                   <button
                     onClick={handleFavoriteClick}
-                    className={`btn btn-outline-warning ms-5 ${isFavorite ? 'active' : ''}`}
+                    className={`btn btn-outline-warning  mt-3 ${isFavorite ? 'active' : ''}`}
                   >
                     <i className="fa-regular fa-heart"></i>
                   </button>

@@ -94,7 +94,7 @@ export const Demo = () => {
     <>
 
       <div className="container fluid">
-        <div className="row m-3">
+        <div className="row m-3 ">
           
           <div className="col-6 ">
             <img
@@ -113,14 +113,19 @@ export const Demo = () => {
                       : "/films"
                       )+
                     `/${detail.uid}.jpg`}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = "https://starwars-visualguide.com/assets/img/placeholder.jpg";
+                    }
+                  }
               className="card-img-top"
               alt="..."
             />
           </div>
-          <div className="col-6 text-center">
+          <div className="col-6 flex-column text-center description ">
 
-            <h1>{detail.properties?.name}</h1>
-            <p>
+            <h1 className="m-4">{detail.properties?.name}</h1>
+            <p className="text-capitalize">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
               ever since the 1500s, when an unknown printer took a galley of type
