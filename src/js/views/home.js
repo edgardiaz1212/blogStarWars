@@ -10,6 +10,7 @@ export const Home = (items) => {
   const { people, planets } = store;
 
 
+
   return (
     <>
      <div className="cuerpo">
@@ -18,7 +19,7 @@ export const Home = (items) => {
       </div>
       <div className="d-flex scroll-container" style={{ overflowX: "scroll" }}>
         {people.map((item) => {
-          return <Tarjeta item={item} key={`${item._id}`} nature="people" />;
+          return <Tarjeta item={item} key={`${item._id}`} nature="people" uid={`${item.uid}`} />;
         })}
       </div>
       <div className=" text-danger mt-5">
@@ -26,7 +27,7 @@ export const Home = (items) => {
       </div>
       <div className="d-flex scroll-container" style={{ overflowX: "scroll" }}>
         {planets.map((item) => {
-          return <Tarjeta item={item} key={`${item._id}`} nature="planets" />;
+          return <Tarjeta item={item} key={`${item._id}`} nature="planets" uid={`${item.uid}`} />;
         })}
       </div>
       <div className=" text-danger mt-5">

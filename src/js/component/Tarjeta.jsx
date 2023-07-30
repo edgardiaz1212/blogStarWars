@@ -5,7 +5,7 @@ import { Context } from "../store/appContext";
 const Tarjeta = (props) => {
   const { item, nature } = props
   const { actions, store } = useContext(Context);
-  const { favorites } = store;
+  const { favorites,IMAGEURL } = store;
   const { addFavorites } = actions;
 
   const isFavorite = favorites.some((fav) => fav._id === item._id);
@@ -22,9 +22,14 @@ const Tarjeta = (props) => {
             <div className="container horizontal-scrollable m-3">
               <div className="card " style={{ width: "18rem" }}>
                 <img
-                  src="https://www.hub-4.co.uk/wp-content/uploads/2017/11/400X200.gif"
+                  src={
+                    IMAGEURL +
+                    (nature === "people" ? "/characters" : "/planets") +
+                    `/${item.uid}.jpg`
+                  }
                   className="card-img-top"
                   alt="..."
+                
                 />
                 <div className="card-body">
                   <h5 className="card-title">{item.properties.name}</h5>

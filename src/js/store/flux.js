@@ -2,11 +2,12 @@ const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       BASEURL: "https://www.swapi.tech/api/",
-      IMAGEURL:"https://starwars-visualguide.com/#/",
+      IMAGEURL:"https://starwars-visualguide.com/assets/img",
       endPoint: ["people", "planets"],
       people: JSON.parse(localStorage.getItem("people")) || [],
       planets: JSON.parse(localStorage.getItem("planets")) || [],
-      favorites: []
+      favorites: [],
+      
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -49,7 +50,10 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({
           favorites: updatedFavorites
         });
-      }
+      },
+
+    
+      
     },
   };
 };
