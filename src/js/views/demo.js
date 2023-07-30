@@ -7,22 +7,25 @@ import "../../styles/demo.css";
 
 export const Demo = () => {
   const { store } = useContext(Context);
-  const { people, planets } = store;
+  const { people, planets, vehicles, starships, species,films, IMAGEURL  } = store;
   const [detail, setDetail] = useState({})
   const params = useParams()
   // console.log(params)
-  // console.log(people)
+  
 
   const finder = () => {
     let detail = store[params.nature].find((item) =>
       item._id == params.id
     )
     setDetail(detail)
+    
   }
   useEffect(() => {
     finder()
 
-  }, [store.people, store.planets])
+  }, [people, planets, vehicles, starships, species,films])
+
+  console.log(detail)
 
   const propertiesFound = () => {
     if (detail.properties) {
@@ -47,6 +50,33 @@ export const Demo = () => {
           { key: "eye_color", name: "Eye Color" },
 
         ];
+      }else if (params.nature ==="vehicles"){
+        propertiesNeeded=[
+          {key:"model", name:"Model"},
+          {key:"Vehicle_class", name:"Vehicle Class"},
+          {key:"manufacturer", name:"Manufacturer"},
+          {key:"length", name:"Length"},
+          {key:"max_atmosphering_speed", name:"Max Atmosphering Speed"},
+          {key:"cargo_capacity", name:"Cargo Capacity"}
+        ]
+      } else if (params.nature === "starships"){
+        propertiesNeeded=[
+          {key:"model", name:"Model"},
+          {key:"Vehicle_class", name:"Vehicle Class"},
+          {key:"manufacturer", name:"Manufacturer"},
+          {key:"max_atmosphering_speed", name:"Max Atmosphering Speed"},
+          {key:"cargo_capacity", name:"Cargo Capacity"}
+        ]
+      }else if (params.nature === "species"){
+        propertiesNeeded=[
+          {key:"classification", name:"Clasiffication"},
+          {key:"language", name:"Language"},
+          {key:"average_height", name:"Average Height"},
+          {key:"average_lifespan", name:"Average Lifespan"},
+          {key:"designation", name:"Designation"},
+          {key:"eye_colors", name:"Eye Colors"},
+          
+        ]
       }
 
       return propertiesNeeded.map(({ key, name }) => (
@@ -65,9 +95,24 @@ export const Demo = () => {
 
       <div className="container fluid">
         <div className="row m-3">
+          
           <div className="col-6 ">
             <img
-              src="https://www.hub-4.co.uk/wp-content/uploads/2017/11/400X200.gif"
+              src={
+                    IMAGEURL +
+                    (params.nature === "people"
+                      ? "/characters"
+                      : params.nature === "planets"
+                      ? "/planets"
+                      : params.nature== "vehicles"
+                      ?"/vehicles"
+                      :params.nature=="starships"
+                      ? "/starships"
+                      :params.nature=="species"
+                      ? "/species"
+                      : "/films"
+                      )+
+                    `/${detail.uid}.jpg`}
               className="card-img-top"
               alt="..."
             />

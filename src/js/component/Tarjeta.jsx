@@ -17,7 +17,7 @@ const Tarjeta = (props) => {
   return (
     <>
       {
-        nature == "people" || nature == "planets" ||nature=="vehicles" ?
+        nature == "people" || nature == "planets" ||nature=="vehicles"|| nature== "starships"|| nature=="species" || nature=="films" ?
           <div >
             <div className="container horizontal-scrollable m-3">
               <div className="card " style={{ width: "18rem" }}>
@@ -28,8 +28,19 @@ const Tarjeta = (props) => {
                       ? "/characters"
                       : nature === "planets"
                       ? "/planets"
-                      : "/vehicles") +
+                      : nature== "vehicles"
+                      ?"/vehicles"
+                      :nature=="starships"
+                      ? "/starships"
+                      :nature=="species"
+                      ? "/species"
+                      : "/films"
+                      )+
                     `/${item.uid}.jpg`
+                  }onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = "https://www.hub-4.co.uk/wp-content/uploads/2017/11/400X200.gif";
+                    }
                   }
                   
                   className="card-img-top"
@@ -56,7 +67,35 @@ const Tarjeta = (props) => {
                           <br />
 
 
-                        </> : null
+                        </> : 
+                        nature == "vehicles" ?
+                        <>
+                          <span className="card-text"> Model: {item.properties.model} </span>
+                          <br />
+                          <span className="card-text">Manufacturer: {item.properties.manufacturer} </span>
+                          <br />
+
+
+                        </> :
+                         nature == "starships" ?
+                         <>
+                           <span className="card-text"> Model: {item.properties.model} </span>
+                           <br />
+                           <span className="card-text">Manufacturer: {item.properties.manufacturer} </span>
+                           <br />
+ 
+ 
+                         </> :
+                          nature == "species" ?
+                          <>
+                            <span className="card-text"> Name: {item.properties.name} </span>
+                            <br />
+                            <span className="card-text">Classification: {item.properties.classification} </span>
+                            <br />
+  
+  
+                          </> :
+                        null
                   }
                 </div>
 
