@@ -17,16 +17,21 @@ const Tarjeta = (props) => {
   return (
     <>
       {
-        nature == "people" || nature == "planets" ?
+        nature == "people" || nature == "planets" ||nature=="vehicles" ?
           <div >
             <div className="container horizontal-scrollable m-3">
               <div className="card " style={{ width: "18rem" }}>
                 <img
                   src={
                     IMAGEURL +
-                    (nature === "people" ? "/characters" : "/planets") +
+                    (nature === "people"
+                      ? "/characters"
+                      : nature === "planets"
+                      ? "/planets"
+                      : "/vehicles") +
                     `/${item.uid}.jpg`
                   }
+                  
                   className="card-img-top"
                   alt="..."
                 

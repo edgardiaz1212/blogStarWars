@@ -7,7 +7,7 @@ import { Context } from "../store/appContext";
 
 export const Home = (items) => {
   const { store, actions } = useContext(Context);
-  const { people, planets } = store;
+  const { people, planets, vehicles } = store;
 
 
 
@@ -32,6 +32,11 @@ export const Home = (items) => {
       </div>
       <div className=" text-danger mt-5">
         <h1>Vehicles</h1>
+      </div>
+      <div className="d-flex scroll-container" style={{ overflowX: "scroll" }}>
+        {vehicles.map((item) => {
+          return <Tarjeta item={item} key={`${item._id}`} nature="vehicles" uid={`${item.uid}`} />;
+        })}
       </div>
       </div>
     </>

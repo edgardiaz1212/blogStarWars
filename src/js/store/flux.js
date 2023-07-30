@@ -3,9 +3,13 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       BASEURL: "https://www.swapi.tech/api/",
       IMAGEURL:"https://starwars-visualguide.com/assets/img",
-      endPoint: ["people", "planets"],
+      endPoint: ["people", "planets", "vehicles"],
       people: JSON.parse(localStorage.getItem("people")) || [],
       planets: JSON.parse(localStorage.getItem("planets")) || [],
+      vehicles: JSON.parse(localStorage.getItem("vehicles")) || [],
+      species: JSON.parse(localStorage.getItem("species")) || [],
+      starships: JSON.parse(localStorage.getItem("starships")) || [],
+      films: JSON.parse(localStorage.getItem("films")) || [],
       favorites: [],
       
     },
