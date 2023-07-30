@@ -12,7 +12,7 @@ export const Home = (items) => {
 
   return (
     <>
-      {" "}
+     <div className="cuerpo">
       <div className=" text-danger mt-5">
         <h1>Characters</h1>
       </div>
@@ -29,7 +29,10 @@ export const Home = (items) => {
           return <Tarjeta item={item} key={`${item._id}`} nature="planets" />;
         })}
       </div>
-
+      <div className=" text-danger mt-5">
+        <h1>Vehicles</h1>
+      </div>
+      </div>
     </>
   );
 };

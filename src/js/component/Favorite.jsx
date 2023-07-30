@@ -10,7 +10,7 @@ const Favorite = () => {
         <>
             <div className="dropdown dropdown-end">
                 <button
-                    className="btn btn-primary dropdown-toggle me-3"
+                    className="btn btn-fav dropdown-toggle me-3"
                     type="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
